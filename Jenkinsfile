@@ -34,9 +34,9 @@ pipeline {
             steps {
                 echo '>>> Creating virtual environment...'
                 bat '''
-                    python -m venv %VENV_DIR%
+                    C:\Users\HP\AppData\Local\Programs\Python\Python314\python.exe -m venv %VENV_DIR%
                     call %VENV_DIR%\\Scripts\\activate.bat
-                    python -m pip install --upgrade pip
+                    C:\Users\HP\AppData\Local\Programs\Python\Python314\python.exe -m pip install --upgrade pip
                 '''
             }
         }
