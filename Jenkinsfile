@@ -3,17 +3,12 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 bat '''
-                    pip install -r requirements.txt
-                    pip install pytest pytest-html
+                    py -m pip install --upgrade pip
+                    py -m pip install -r requirements.txt
+                    py -m pip install pytest pytest-html
                 '''
             }
         }
@@ -21,7 +16,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 bat '''
-                    pytest tests --html=reports/report.html --self-contained-html
+                    if not exist reports mkdir reports
+                    py -m pytest tests --html=reports/report.html --self-contained-html
                 '''
             }
         }
