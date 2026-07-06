@@ -1,4 +1,4 @@
-'''import pytest
+import pytest
 
 from selenium import webdriver
 
@@ -8,11 +8,11 @@ def setup_and_teardown():
     driver.maximize_window()
     driver.get('https://demowebshop.tricentis.com/')
     yield driver
-    driver.quit()    '''
+    driver.quit()    
 
 
 ## Cross browser Testing
-
+'''
 import pytest
 
 from selenium import webdriver
@@ -31,7 +31,7 @@ def setup_and_teardown(request):
     driver.maximize_window()
     driver.get('https://demowebshop.tricentis.com/')
     yield driver
-    driver.quit()
+    driver.quit()'''
 
 # # request is a built-in pytest object
 # # Whenever a fixture is parameterized , the current parameter is stored
