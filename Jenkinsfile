@@ -6,9 +6,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 bat '''
-                    py -m pip install --upgrade pip
-                    py -m pip install -r requirements.txt
-                    py -m pip install pytest pytest-html
+                "C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" -m pip install -r requirements.txt
+                "C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" -m pip install pytest pytest-html
                 '''
             }
         }
@@ -16,8 +15,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 bat '''
-                    if not exist reports mkdir reports
-                    py -m pytest tests --html=reports/report.html --self-contained-html
+                if not exist reports mkdir reports
+                "C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" -m pytest tests --html=reports/report.html --self-contained-html
                 '''
             }
         }
@@ -30,8 +29,7 @@ pipeline {
                 reportFiles: 'report.html',
                 reportName: 'Pytest HTML Report',
                 keepAll: true,
-                alwaysLinkToLastBuild: true,
-                allowMissing: false
+                alwaysLinkToLastBuild: true
             ])
         }
     }
